@@ -1,0 +1,226 @@
+[
+  {
+    "id": "duong-linh-anh",
+    "name": "Dương Linh Anh",
+    "poem": "Anh ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Anh mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFD6E8"
+  },
+  {
+    "id": "nguyen-ngoc-linh-giang",
+    "name": "Nguyễn Ngọc Linh Giang",
+    "poem": "Giang ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Giang mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFE7C7"
+  },
+  {
+    "id": "nguyen-thanh-hang",
+    "name": "Nguyễn Thanh Hằng",
+    "poem": "Hằng ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Hằng mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFF3B0"
+  },
+  {
+    "id": "phan-thi-my-hanh",
+    "name": "Phan Thị Mỹ Hạnh",
+    "poem": "Hạnh ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Hạnh mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#D8FFD6"
+  },
+  {
+    "id": "phan-thi-thanh-huyen",
+    "name": "Phan Thị Thanh Huyền",
+    "poem": "Huyền ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Huyền mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#D7F0FF"
+  },
+  {
+    "id": "duong-thi-phuong-linh",
+    "name": "Dương Thị Phương Linh",
+    "poem": "Linh ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Linh mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#E8D7FF"
+  },
+  {
+    "id": "ha-thi-linh",
+    "name": "Hà Thi Linh",
+    "poem": "Linh ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Linh mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFDDE1"
+  },
+  {
+    "id": "hoang-ha-linh",
+    "name": "Hoàng Hà Linh",
+    "poem": "Linh ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Linh mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FEE2F2"
+  },
+  {
+    "id": "nguyen-ngoc-khanh-ly",
+    "name": "Nguyễn Ngọc Khánh Ly",
+    "poem": "Ly ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Ly mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFECEC"
+  },
+  {
+    "id": "duong-phan-thao-mi",
+    "name": "Dương Phan Thảo Mi",
+    "poem": "Mi ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Mi mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFF0D6"
+  },
+  {
+    "id": "pham-hoang-my",
+    "name": "Phạm Hoàng My",
+    "poem": "My ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc My mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#E6FFE6"
+  },
+  {
+    "id": "phan-thi-thuy-ngan",
+    "name": "Phan Thị Thùy Ngân",
+    "poem": "Ngân ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Ngân mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#E6F7FF"
+  },
+  {
+    "id": "duong-hoang-khanh-ngoc",
+    "name": "Dương Hoàng Khánh Ngọc",
+    "poem": "Ngọc ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Ngọc mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#F1E6FF"
+  },
+  {
+    "id": "nguyen-thanh-bao-ngoc",
+    "name": "Nguyễn Thanh Bảo Ngọc",
+    "poem": "Ngọc ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Ngọc mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FDE8E8"
+  },
+  {
+    "id": "vu-nhu-ngoc",
+    "name": "Vũ Như Ngọc",
+    "poem": "Ngọc ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Ngọc mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFE6F2"
+  },
+  {
+    "id": "duong-thao-nguyen",
+    "name": "Dương Thảo Nguyên",
+    "poem": "Nguyên ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Nguyên mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFF7E6"
+  },
+  {
+    "id": "pham-thi-anh-nguyet",
+    "name": "Phạm Thị Anh Nguyệt",
+    "poem": "Nguyệt ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Nguyệt mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FDEFFB"
+  },
+  {
+    "id": "pham-thi-thanh-nhan",
+    "name": "Phạm Thị Thanh Nhãn",
+    "poem": "Nhãn ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Nhãn mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#E8FFF4"
+  },
+  {
+    "id": "ho-thi-uyen-nhi",
+    "name": "Hồ Thị Uyển Nhi",
+    "poem": "Nhi ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Nhi mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFF1F0"
+  },
+  {
+    "id": "ton-nu-uyen-nhi",
+    "name": "Tôn Nữ Uyển Nhi",
+    "poem": "Nhi ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Nhi mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#EAF7FF"
+  },
+  {
+    "id": "tran-ngoc-yen-nhi",
+    "name": "Trần Ngọc Yến Nhi",
+    "poem": "Nhi ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Nhi mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFEFE6"
+  },
+  {
+    "id": "phan-thi-ha-ni",
+    "name": "Phan Thị Hà Ni",
+    "poem": "Ni ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Ni mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFF0F6"
+  },
+  {
+    "id": "nguyen-thi-kieu-oanh",
+    "name": "Nguyễn Thị Kiều Oanh",
+    "poem": "Oanh ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Oanh mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#EAF6E6"
+  },
+  {
+    "id": "nguyen-hong-phuong",
+    "name": "Nguyễn Hồng Phương",
+    "poem": "Phương ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Phương mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFEAD6"
+  },
+  {
+    "id": "le-thi-ngoc-tam",
+    "name": "Lê Thị Ngọc Tâm",
+    "poem": "Tâm ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Tâm mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#F3E6FF"
+  },
+  {
+    "id": "vo-thi-my-tam",
+    "name": "Võ Thị Mỹ Tâm",
+    "poem": "Tâm ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Tâm mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#E6FFF9"
+  },
+  {
+    "id": "nguyen-thi-hai-thuyet",
+    "name": "Nguyễn Thị Hải Thuyết",
+    "poem": "Thuyết ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Thuyết mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFF5EA"
+  },
+  {
+    "id": "phan-hoai-thuong",
+    "name": "Phan Hoài Thương",
+    "poem": "Thương ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Thương mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFEAF0"
+  },
+  {
+    "id": "le-thi-hoai-trang",
+    "name": "Lê Thị Hoài Trang",
+    "poem": "Trang ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Trang mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#E9F0FF"
+  },
+  {
+    "id": "nguyen-huyen-trang",
+    "name": "Nguyễn Huyền Trang",
+    "poem": "Trang ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Trang mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FDF0E6"
+  },
+  {
+    "id": "nguyen-thi-cam-tu",
+    "name": "Nguyễn Thi Cẩm Tú",
+    "poem": "Tú ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Tú mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#E6FFF0"
+  },
+  {
+    "id": "nguyen-thanh-tam",
+    "name": "Nguyễn Thanh Tâm",
+    "poem": "Tâm ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Tâm mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FBEFFB"
+  }
+]

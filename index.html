@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Quà 12A4 — Nhập tên để nhận lời chúc</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🎁 Quà bất ngờ cho các bạn nữ 12A4</h1>
+    <p class="lead">Gõ tên và nhập mật khẩu chung để mở món quà riêng nhé.</p>
+  </header>
+
+  <main class="card">
+    <div class="form-row" id="formRow">
+      <input id="name" type="search" placeholder="Gõ tên (ví dụ: Nguyễn Ngọc Linh Giang)" autocomplete="off">
+      <input id="pass" type="password" placeholder="Mật khẩu chung">
+      <button id="btn" class="btn">Mở quà</button>
+    </div>
+    <div id="suggestions" class="suggestions"></div>
+
+    <section id="profile" class="profile hidden" aria-hidden="true">
+      <div class="profile-cover" id="profileCover">
+        <div class="profile-header">
+          <h2 id="pname"></h2>
+          <div class="meta">Lớp 12A4 — Trường THPT Lê Quý Đôn<br>Chủ nhiệm: Nguyễn Thanh Tâm</div>
+        </div>
+      </div>
+      <div class="profile-card" id="profileCard">
+        <div class="poem-wrap">
+          <h3>💌 Lời chúc</h3>
+          <div id="poem" class="poem"></div>
+        </div>
+        <div id="videoBox" class="videoBox"></div>
+        <button id="copyLink" class="mini">Copy link cá nhân</button>
+        <div class="note">Mật khẩu chung: <strong>Các bạn nam 12A4 đẹp trai</strong></div>
+        <a id="back" class="back">← Quay lại</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>Made with ❤️ — Lớp 12A4</footer>
+</div>
+
+<script>
+const PASSWORD = "Các bạn nam 12A4 đẹp trai";
+const PROFILES = [
+  {
+    "id": "duong-linh-anh",
+    "name": "Dương Linh Anh",
+    "poem": "Anh ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Anh mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFD6E8"
+  },
+  {
+    "id": "nguyen-ngoc-linh-giang",
+    "name": "Nguyễn Ngọc Linh Giang",
+    "poem": "Giang ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Giang mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFE7C7"
+  },
+  {
+    "id": "nguyen-thanh-hang",
+    "name": "Nguyễn Thanh Hằng",
+    "poem": "Hằng ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Hằng mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFF3B0"
+  },
+  {
+    "id": "phan-thi-my-hanh",
+    "name": "Phan Thị Mỹ Hạnh",
+    "poem": "Hạnh ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Hạnh mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#D8FFD6"
+  },
+  {
+    "id": "phan-thi-thanh-huyen",
+    "name": "Phan Thị Thanh Huyền",
+    "poem": "Huyền ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Huyền mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#D7F0FF"
+  },
+  {
+    "id": "duong-thi-phuong-linh",
+    "name": "Dương Thị Phương Linh",
+    "poem": "Linh ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Linh mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#E8D7FF"
+  },
+  {
+    "id": "ha-thi-linh",
+    "name": "Hà Thi Linh",
+    "poem": "Linh ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Linh mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFDDE1"
+  },
+  {
+    "id": "hoang-ha-linh",
+    "name": "Hoàng Hà Linh",
+    "poem": "Linh ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Linh mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FEE2F2"
+  },
+  {
+    "id": "nguyen-ngoc-khanh-ly",
+    "name": "Nguyễn Ngọc Khánh Ly",
+    "poem": "Ly ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Ly mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFECEC"
+  },
+  {
+    "id": "duong-phan-thao-mi",
+    "name": "Dương Phan Thảo Mi",
+    "poem": "Mi ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Mi mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFF0D6"
+  },
+  {
+    "id": "pham-hoang-my",
+    "name": "Phạm Hoàng My",
+    "poem": "My ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc My mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#E6FFE6"
+  },
+  {
+    "id": "phan-thi-thuy-ngan",
+    "name": "Phan Thị Thùy Ngân",
+    "poem": "Ngân ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Ngân mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#E6F7FF"
+  },
+  {
+    "id": "duong-hoang-khanh-ngoc",
+    "name": "Dương Hoàng Khánh Ngọc",
+    "poem": "Ngọc ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Ngọc mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#F1E6FF"
+  },
+  {
+    "id": "nguyen-thanh-bao-ngoc",
+    "name": "Nguyễn Thanh Bảo Ngọc",
+    "poem": "Ngọc ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Ngọc mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FDE8E8"
+  },
+  {
+    "id": "vu-nhu-ngoc",
+    "name": "Vũ Như Ngọc",
+    "poem": "Ngọc ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Ngọc mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFE6F2"
+  },
+  {
+    "id": "duong-thao-nguyen",
+    "name": "Dương Thảo Nguyên",
+    "poem": "Nguyên ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Nguyên mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFF7E6"
+  },
+  {
+    "id": "pham-thi-anh-nguyet",
+    "name": "Phạm Thị Anh Nguyệt",
+    "poem": "Nguyệt ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Nguyệt mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FDEFFB"
+  },
+  {
+    "id": "pham-thi-thanh-nhan",
+    "name": "Phạm Thị Thanh Nhãn",
+    "poem": "Nhãn ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Nhãn mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#E8FFF4"
+  },
+  {
+    "id": "ho-thi-uyen-nhi",
+    "name": "Hồ Thị Uyển Nhi",
+    "poem": "Nhi ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Nhi mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFF1F0"
+  },
+  {
+    "id": "ton-nu-uyen-nhi",
+    "name": "Tôn Nữ Uyển Nhi",
+    "poem": "Nhi ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Nhi mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#EAF7FF"
+  },
+  {
+    "id": "tran-ngoc-yen-nhi",
+    "name": "Trần Ngọc Yến Nhi",
+    "poem": "Nhi ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Nhi mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFEFE6"
+  },
+  {
+    "id": "phan-thi-ha-ni",
+    "name": "Phan Thị Hà Ni",
+    "poem": "Ni ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Ni mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFF0F6"
+  },
+  {
+    "id": "nguyen-thi-kieu-oanh",
+    "name": "Nguyễn Thị Kiều Oanh",
+    "poem": "Oanh ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Oanh mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#EAF6E6"
+  },
+  {
+    "id": "nguyen-hong-phuong",
+    "name": "Nguyễn Hồng Phương",
+    "poem": "Phương ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Phương mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFEAD6"
+  },
+  {
+    "id": "le-thi-ngoc-tam",
+    "name": "Lê Thị Ngọc Tâm",
+    "poem": "Tâm ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Tâm mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#F3E6FF"
+  },
+  {
+    "id": "vo-thi-my-tam",
+    "name": "Võ Thị Mỹ Tâm",
+    "poem": "Tâm ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Tâm mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#E6FFF9"
+  },
+  {
+    "id": "nguyen-thi-hai-thuyet",
+    "name": "Nguyễn Thị Hải Thuyết",
+    "poem": "Thuyết ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Thuyết mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFF5EA"
+  },
+  {
+    "id": "phan-hoai-thuong",
+    "name": "Phan Hoài Thương",
+    "poem": "Thương ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Thương mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FFEAF0"
+  },
+  {
+    "id": "le-thi-hoai-trang",
+    "name": "Lê Thị Hoài Trang",
+    "poem": "Trang ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Trang mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#E9F0FF"
+  },
+  {
+    "id": "nguyen-huyen-trang",
+    "name": "Nguyễn Huyền Trang",
+    "poem": "Trang ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Trang mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FDF0E6"
+  },
+  {
+    "id": "nguyen-thi-cam-tu",
+    "name": "Nguyễn Thi Cẩm Tú",
+    "poem": "Tú ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Tú mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#E6FFF0"
+  },
+  {
+    "id": "nguyen-thanh-tam",
+    "name": "Nguyễn Thanh Tâm",
+    "poem": "Tâm ơi, nụ cười như nắng sớm,\nÁnh nhìn dịu dàng, xua tan mùa mưa.\nChúc Tâm mỗi ngày thêm rạng rỡ, ngập tràn yêu thương.",
+    "video": "",
+    "color": "#FBEFFB"
+  }
+];
+
+function normalize(s){
+  if(!s) return "";
+  s = s.toLowerCase();
+  const map = {'à':'a','á':'a','ạ':'a','ả':'a','ã':'a','â':'a','ầ':'a','ấ':'a','ậ':'a','ẩ':'a','ẫ':'a','ă':'a','ằ':'a','ắ':'a','ặ':'a','ẳ':'a','ẵ':'a',
+               'è':'e','é':'e','ẹ':'e','ẻ':'e','ẽ':'e','ê':'e','ề':'e','ế':'e','ệ':'e','ể':'e','ễ':'e',
+               'ì':'i','í':'i','ị':'i','ỉ':'i','ĩ':'i',
+               'ò':'o','ó':'o','ọ':'o','ỏ':'o','õ':'o','ô':'o','ồ':'o','ố':'o','ộ':'o','ổ':'o','ỗ':'o','ơ':'o','ờ':'o','ớ':'o','ợ':'o','ở':'o','ỡ':'o',
+               'ù':'u','ú':'u','ụ':'u','ủ':'u','ũ':'u','ư':'u','ừ':'u','ứ':'u','ự':'u','ử':'u','ữ':'u',
+               'ỳ':'y','ý':'y','ỵ':'y','ỷ':'y','ỹ':'y','đ':'d'};
+  let out = "";
+  for(const ch of s) out += map[ch] || ch;
+  out = out.replace(/[^\w\s-]/g,"").replace(/\s+/g," ").trim();
+  return out.replace(/\s+/g,'').toLowerCase();
+}
+
+// Levenshtein distance for fuzzy
+function levenshtein(a,b){
+  if(a===b) return 0;
+  const al = a.length, bl = b.length;
+  if(al===0) return bl;
+  if(bl===0) return al;
+  const dp = Array(al+1).fill(null).map(()=>Array(bl+1).fill(0));
+  for(let i=0;i<=al;i++) dp[i][0]=i;
+  for(let j=0;j<=bl;j++) dp[0][j]=j;
+  for(let i=1;i<=al;i++){
+    for(let j=1;j<=bl;j++){
+      const cost = a[i-1]===b[j-1]?0:1;
+      dp[i][j] = Math.min(dp[i-1][j]+1, dp[i][j-1]+1, dp[i-1][j-1]+cost);
+    }
+  }
+  return dp[al][bl];
+}
+
+function passwordAccepts(input){
+  const nInput = normalize(input);
+  const nPass = normalize(PASSWORD);
+  if(nInput === nPass) return true;
+  const d = levenshtein(nInput, nPass);
+  const ratio = d / Math.max(nInput.length, nPass.length);
+  return (d <= 2) || (ratio <= 0.18);
+}
+
+function buildLookup(){
+  return PROFILES.map(p => ({...p, norm: normalize(p.name), id: p.id}));
+}
+
+const lookup = buildLookup();
+
+function renderSuggestions(q){
+  const el = document.getElementById('suggestions');
+  el.innerHTML = "";
+  if(!q) return;
+  const nq = normalize(q);
+  const matched = lookup.filter(p => p.norm.includes(nq) || p.id.includes(nq)).slice(0,8);
+  if(matched.length===0){
+    el.innerHTML = "<div class='sug'>Không tìm thấy. Thử gõ không dấu hoặc một phần tên.</div>";
+    return;
+  }
+  for(const p of matched){
+    const d = document.createElement('div');
+    d.className='sug';
+    d.textContent = p.name;
+    d.onclick = ()=>{ document.getElementById('name').value = p.name; el.innerHTML=''; };
+    el.appendChild(d);
+  }
+}
+
+const nameInput = document.getElementById('name');
+const passInput = document.getElementById('pass');
+const btn = document.getElementById('btn');
+const profile = document.getElementById('profile');
+const pname = document.getElementById('pname');
+const poemEl = document.getElementById('poem');
+const videoBox = document.getElementById('videoBox');
+const copyBtn = document.getElementById('copyLink');
+const back = document.getElementById('back');
+const profileCover = document.getElementById('profileCover');
+const profileCard = document.getElementById('profileCard');
+const formRow = document.getElementById('formRow');
+const suggestions = document.getElementById('suggestions');
+
+nameInput.addEventListener('input', e=> renderSuggestions(e.target.value));
+nameInput.addEventListener('keydown', e=> { if(e.key==='Enter') passInput.focus(); });
+passInput.addEventListener('keydown', e=> { if(e.key==='Enter') doOpen(); });
+btn.addEventListener('click', doOpen);
+
+function findUserByName(q){
+  const nq = normalize(q);
+  return lookup.find(p => p.norm === nq) || lookup.find(p => p.norm.includes(nq)) || lookup.find(p => p.id === nq.replace(/\s+/g,'-'));
+}
+
+function doOpen(){
+  const nameQ = nameInput.value.trim();
+  const passQ = passInput.value.trim();
+  if(!nameQ){ alert("Nhập tên đi nhé."); nameInput.focus(); return; }
+  if(!passQ){ alert("Nhập mật khẩu chung."); passInput.focus(); return; }
+
+  if(!passwordAccepts(passQ)){ alert("Sai mật khẩu chung. Gợi ý: Các bạn nam 12A4 đẹp trai"); passInput.focus(); return; }
+
+  const user = findUserByName(nameQ);
+  if(!user){ alert("Không tìm thấy tên. Thử gõ không dấu hoặc một phần tên."); return; }
+  openProfile(user);
+}
+
+function openProfile(user){
+  // hide form
+  formRow.style.display = 'none';
+  suggestions.innerHTML = '';
+  // set header & cover color
+  pname.textContent = user.name;
+  document.getElementById('profileCover').style.background = user.color || '#fff0f6';
+  // poem
+  poemEl.innerHTML = "<pre>"+(user.poem || "")+"</pre>";
+  // video
+  videoBox.innerHTML = "";
+  if(user.video){
+    const y = user.video.match(/(youtu\.be\/|v=|\/shorts\/)([A-Za-z0-9_-]{4,})/);
+    if(y){
+      const id = user.video.includes('youtu') ? (user.video.includes('v=') ? (new URL(user.video).searchParams.get('v')) : user.video.split('/').pop()) : null;
+      const src = id ? ("https://www.youtube.com/embed/"+id) : user.video;
+      const iframe = document.createElement('iframe');
+      iframe.src = src; iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"; iframe.allowFullscreen = true;
+      videoBox.appendChild(iframe);
+    } else {
+      const v = document.createElement('video'); v.controls = true;
+      const s = document.createElement('source'); s.src = user.video; s.type = "video/mp4";
+      v.appendChild(s); videoBox.appendChild(v);
+    }
+  }
+  profile.classList.remove('hidden');
+  profile.setAttribute('aria-hidden','false');
+  location.hash = user.id;
+}
+
+copyBtn.addEventListener('click', async ()=>{
+  const id = location.hash.replace('#','') || normalize(nameInput.value).replace(/\s+/g,'-');
+  const url = location.origin + location.pathname + "#" + id;
+  try{ await navigator.clipboard.writeText(url); copyBtn.textContent = "Đã copy ✓"; setTimeout(()=> copyBtn.textContent = "Copy link cá nhân", 1500); }
+  catch(e){ alert("Không copy được tự động, mày copy thủ công link trên thanh địa chỉ nhé."); }
+});
+
+back.addEventListener('click', ()=>{
+  profile.classList.add('hidden');
+  profile.setAttribute('aria-hidden','true');
+  formRow.style.display = '';
+  location.hash = "";
+});
+
+window.addEventListener('load', ()=>{
+  const h = location.hash.replace('#','');
+  if(!h) return;
+  const u = lookup.find(x=> x.id===h || x.idNorm===h);
+  if(u){ nameInput.value = u.name; renderSuggestions(u.name); openProfile(u); }
+});
+</script>
+</body>
+</html>
