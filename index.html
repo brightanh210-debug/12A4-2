@@ -3,30 +3,41 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>🎁 Nhân ngày 20/10 xin tặng các bạn nữ 12A4😘</title>
+<title>🎁 Quà 20/10 12A4</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="wrap">
+
   <header>
-    <h1>🎁 Dành tặng cho các bạn nữ 12A4</h1>
+    <h1>🎁 Dành tặng các bạn nữ 12A4</h1>
     <p class="lead">Nhập tên và mật khẩu để mở món quà nhé.</p>
   </header>
 
   <main class="card">
+    <!-- Form đăng nhập -->
     <div class="form-row" id="formRow">
-      <input id="name" type="search" placeholder="Gõ tên (ví dụ: Dương Nhật Anh)" autocomplete="off">
-      <input id="pass" type="password" placeholder="Mật khẩu ">
-      
+      <input id="name" type="search" placeholder="Nhập tên hoặc biệt danh" autocomplete="off">
+      <div class="password-container">
+        <input type="password" id="pass" placeholder="Nhập mật khẩu" autocomplete="off">
+        <button type="button" id="togglePassword">👁️</button>
+      </div>
       <button id="btn" class="btn">Mở quà</button>
+      <label><input type="checkbox" id="viewAll"> Xem tất cả</label>
     </div>
+
+    <!-- Gợi ý tên -->
     <div id="suggestions" class="suggestions"></div>
 
+    <!-- Danh sách tất cả (ẩn mặc định) -->
+    <div id="allList" class="allList hidden"></div>
+
+    <!-- Trang cá nhân -->
     <section id="profile" class="profile hidden" aria-hidden="true">
       <div class="profile-cover" id="profileCover">
         <div class="profile-header">
           <h2 id="pname"></h2>
-          <div class="meta">Lớp 12A4 — Trường THPT Lê Quý Đôn<br>Chủ nhiệm: Nguyễn Thanh Tâm</div>
+          <div class="meta">Lớp 12A4 — Trường THPT Lê Quý Đôn</div>
         </div>
       </div>
       <div class="profile-card" id="profileCard">
@@ -36,7 +47,6 @@
         </div>
         <div id="videoBox" class="videoBox"></div>
         <button id="copyLink" class="mini">Copy link cá nhân</button>
-        <div class="note">Mật khẩu : <strong>Các bạn nam 12A4 đẹp trai</strong></div>
         <a id="back" class="back">← Quay lại</a>
       </div>
     </section>
