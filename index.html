@@ -15,7 +15,6 @@
   </header>
 
   <main class="card">
-    <!-- Form đăng nhập -->
     <div class="form-row" id="formRow">
       <input id="name" type="search" placeholder="Nhập tên hoặc biệt danh" autocomplete="off">
       <div class="password-container">
@@ -26,13 +25,10 @@
       <label><input type="checkbox" id="viewAll"> Xem tất cả</label>
     </div>
 
-    <!-- Gợi ý tên -->
     <div id="suggestions" class="suggestions"></div>
 
-    <!-- Danh sách tất cả (ẩn mặc định) -->
     <div id="allList" class="allList hidden"></div>
 
-    <!-- Trang cá nhân -->
     <section id="profile" class="profile hidden" aria-hidden="true">
       <div class="profile-cover" id="profileCover">
         <div class="profile-header">
@@ -296,10 +292,7 @@ function normalize(s){
   let out = "";
   for(const ch of s) out += map[ch] || ch;
   out = out.replace(/[^\w\s-]/g,"").replace(/\s+/g," ").trim();
-  return out.replace(/\s+/g,'').toLowerCase();
-}
-
-// Levenshtein distance for fuzzy
+  return out.replace(/\s+/g,'')
 function levenshtein(a,b){
   if(a===b) return 0;
   const al = a.length, bl = b.length;
@@ -389,15 +382,11 @@ function doOpen(){
 }
 
 function openProfile(user){
-  // hide form
   formRow.style.display = 'none';
   suggestions.innerHTML = '';
-  // set header & cover color
   pname.textContent = user.name;
   document.getElementById('profileCover').style.background = user.color || '#fff0f6';
-  // poem
   poemEl.innerHTML = "<pre>"+(user.poem || "")+"</pre>";
-  // video
   videoBox.innerHTML = "";
   if(user.video){
     const y = user.video.match(/(youtu\.be\/|v=|\/shorts\/)([A-Za-z0-9_-]{4,})/);
